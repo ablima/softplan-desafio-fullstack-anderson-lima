@@ -23,4 +23,34 @@ public class UserService {
 		return users;
 	}
 	
+	public String addUser(User user) {
+		users.add(new User(idCounter++, user.getUsername(), user.getPassword(), user.getType()));
+		return "OK";
+	}
+	
+	public void removeUser(long id) {
+		User user = null;
+		
+		for(User u : users) {
+			if(u.getId() == id) {
+				user = u;
+				break;
+			}
+		}
+		
+		if(user != null) {
+			users.remove(user);			
+		}
+	}
+	
+	public User login(String username, String password) {
+		for(User u : users) {
+			if(u.getUsername().equals(username) && u.getPassword().equals(password)) {			
+				return u;
+			}
+		}
+		
+		return null;
+	}
+	
 }
