@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.softplan.desafio.anderson.lima.model.User;
+import com.softplan.desafio.anderson.lima.model.UserType;
 import com.softplan.desafio.anderson.lima.services.UserService;
 
 @RestController
@@ -22,6 +23,11 @@ public class UserController {
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public List<User> getAllUsers() {
 		return userService.findAll();
+	}
+	
+	@RequestMapping(value = "/userTypes", method = RequestMethod.GET)
+	public List<UserType> getAllUserTypes(){
+		return userService.findAllTypes();
 	}
 	
 	@RequestMapping(value = "/users/add", method = RequestMethod.POST)
