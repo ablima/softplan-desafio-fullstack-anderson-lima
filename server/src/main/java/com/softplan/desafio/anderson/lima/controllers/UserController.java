@@ -25,13 +25,13 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/users/add", method = RequestMethod.POST)
-	public String addUser(@RequestBody User user) {
-		return userService.addUser(user);
+	public void addUser(@RequestBody User user) {
+		userService.addUser(user);
 	}
 	
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE) 
-	public void deleteUser(@PathVariable(value = "id") long id){
-		userService.removeUser(id);
+	public Boolean deleteUser(@PathVariable(value = "id") long id){
+		return userService.removeUser(id);
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

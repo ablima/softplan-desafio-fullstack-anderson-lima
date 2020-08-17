@@ -23,12 +23,28 @@ public class UserService {
 		return users;
 	}
 	
-	public String addUser(User user) {
-		users.add(new User(idCounter++, user.getUsername(), user.getPassword(), user.getType()));
-		return "OK";
+	public List<UserType> findAllTypes() {
+		List<UserType> result = new ArrayList<UserType>();
+		result.add(UserType.Admin);
+		result.add(UserType.Triator);
+		result.add(UserType.Finisher);
+		return result;
 	}
 	
-	public void removeUser(long id) {
+	public User getById(long id) {
+		for(User u : users) {
+			if(u.getId() == id) {
+				return u;
+			}
+		}		
+		return null;
+	}
+	
+	public void addUser(User user) {
+		users.add(new User(idCounter++, user.getUsername(), user.getPassword(), user.getType()));
+	}
+	
+	public Boolean removeUser(long id) {
 		User user = null;
 		
 		for(User u : users) {
@@ -39,8 +55,11 @@ public class UserService {
 		}
 		
 		if(user != null) {
-			users.remove(user);			
+			users.remove(user);
+			return true;
 		}
+		
+		return false;
 	}
 	
 	public User login(String username, String password) {
