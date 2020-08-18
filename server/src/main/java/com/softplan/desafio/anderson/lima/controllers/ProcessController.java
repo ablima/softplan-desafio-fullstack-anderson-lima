@@ -37,15 +37,14 @@ public class ProcessController {
 	}
 	
 	@RequestMapping(value = "/process/{userId}/add", method = RequestMethod.POST)
-	public Boolean addProcess(@PathVariable(value = "userId") long userId, @RequestBody Process process) {
+	public Process addProcess(@PathVariable(value = "userId") long userId, @RequestBody Process process) {
 		User user = userService.getById(userId);
 		
 		if(user != null && user.getType() == UserType.Triator) {
-			processService.addProcess(process);
-			return true;
+			return processService.addProcess(process);
 		}		
 		
-		return false;
+		return null;
 	}
 	
 	@RequestMapping(value = "/process/{userId}/close/{processId}", method = RequestMethod.POST)

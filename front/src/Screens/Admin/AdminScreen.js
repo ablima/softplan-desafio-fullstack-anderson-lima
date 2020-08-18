@@ -18,7 +18,6 @@ import Paper from '@material-ui/core/Paper';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import CancelSharp from '@material-ui/icons/CancelSharp';
@@ -33,7 +32,6 @@ class AdminScreen extends React.Component {
         super(props);
         this.state = {
             popupOpen: false,
-            isUpdate: false,
             users: [],
             userTypes: [],
             newUser: {
@@ -90,7 +88,6 @@ class AdminScreen extends React.Component {
     }
 
     async addUser(){
-        console.info(this.state.newUser);
         let response = await api.post("users/add", this.state.newUser);
         if(response.data){
             let users = this.state.users;

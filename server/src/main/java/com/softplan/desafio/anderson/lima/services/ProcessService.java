@@ -44,8 +44,10 @@ public class ProcessService {
 		return null;
 	}
 	
-	public void addProcess(Process process) {
-		processes.add(new Process(idCounter++, process.getDescription(), "", false, process.getUsers()));
+	public Process addProcess(Process process) {
+		Process newProcess = new Process(idCounter++, process.getDescription(), "", false, process.getUsers());
+		processes.add(newProcess);
+		return newProcess;
 	}
 	
 	public Boolean finishProcess(long processId, String report) {
