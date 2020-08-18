@@ -113,13 +113,17 @@ class AdminScreen extends React.Component {
     handleInputChange(e){
         let newUser = this.state.newUser;
         newUser[e.target.id] = e.target.value;
-        this.setState(newUser);
+        this.setState({
+            newUser
+        });
     }
 
     handleSelectChange(e){
         let newUser = this.state.newUser;
         newUser["type"] = e.target.value;
-        this.setState(newUser);
+        this.setState({
+            newUser
+        });
     }
 
     renderPopup(){

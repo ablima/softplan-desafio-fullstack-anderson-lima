@@ -199,6 +199,7 @@ class TriatorScreen extends React.Component {
                                 <TableRow>
                                     <TableCell align="left"><b>Descrição</b></TableCell>
                                     <TableCell align="left"><b>Responsáveis</b></TableCell>
+                                    <TableCell align="left"><b>Status</b></TableCell>
                                     <TableCell align="left"><b>Ações</b></TableCell>
                                 </TableRow>
                             </TableHead>
@@ -211,6 +212,7 @@ class TriatorScreen extends React.Component {
                                                 <span>{username}&nbsp;</span>
                                             ))}
                                         </TableCell>
+                                        <TableCell align="left">{process.finished ? "Fechado" : "Aberto"}</TableCell>
                                         <TableCell align="left">
                                             <div>
                                                 <a onClick={() => this.openPopupToEdit(process)}>

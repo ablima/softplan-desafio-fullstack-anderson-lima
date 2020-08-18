@@ -48,7 +48,7 @@ public class ProcessController {
 	}
 	
 	@RequestMapping(value = "/process/{userId}/close/{processId}", method = RequestMethod.POST)
-	public Boolean closeProcess(@PathVariable(value = "userId") long userId, 
+	public Process closeProcess(@PathVariable(value = "userId") long userId, 
 			@PathVariable(value = "processId") long processId,
 			@RequestBody Process process) {
 		
@@ -57,7 +57,7 @@ public class ProcessController {
 			return processService.finishProcess(processId, process.getReport());			
 		}
 		
-		return false;
+		return null;
 	}
 	
 	@RequestMapping(value = "/process/{userId}/update/{processId}", method = RequestMethod.PUT)

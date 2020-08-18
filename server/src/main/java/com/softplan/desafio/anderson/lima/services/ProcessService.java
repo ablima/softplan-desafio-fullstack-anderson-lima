@@ -15,8 +15,8 @@ public class ProcessService {
 	private static long idCounter = 0;
 	
 	static {
-		processes.add(new Process(idCounter++, "This is the first process. Report to close it.", "", false, Arrays.asList(1L)));
-		processes.add(new Process(idCounter++, "The second process.", "", false, Arrays.asList(1L)));
+		processes.add(new Process(idCounter++, "This is the first process. Report to close it.", "", false, Arrays.asList(2L)));
+		processes.add(new Process(idCounter++, "The second process.", "", false, Arrays.asList(2L)));
 	}
 	
 	public List<Process> findAll() {
@@ -50,16 +50,16 @@ public class ProcessService {
 		return newProcess;
 	}
 	
-	public Boolean finishProcess(long processId, String report) {
+	public Process finishProcess(long processId, String report) {
 		for(Process p : processes) {
 			if(p.getId() == processId) {
 				p.setFinished(true);
 				p.setReport(report);
-				return true;
+				return p;
 			}
 		}
 		
-		return false;
+		return null;
 	}
 	
 	public Boolean updateProcess(long processId, Process process) {
