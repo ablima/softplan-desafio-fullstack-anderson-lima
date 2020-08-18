@@ -1,3 +1,27 @@
+# Notas da solução
+
+- Frontend implementado em React.js
+- Backend implementado com SpringBoot com Maven
+- O backend utiliza dados estáticos para agilizar a implementação.
+- Implementado um login para facilitar a transição entre os 3 usuários.
+
+- 3 usuários padrões criados:
+* admin
+* triator
+* finisher
+- Todas as senhas são 123456
+
+# Notas para instalação
+
+- O backend, localizado na pasta SERVER, deve ser importado no eclipse como um projeto Maven
+- Para realizar o build, clicar com botão direito no arquivo pom.xml -> Run as -> Maven Build
+- Executar o arquivo jar criado na pasta target: anderson.lima-0.0.1-SNAPSHOT.jar
+
+- O frontend está localizado na pasta FRONT
+- Para inicializar, com o nodeJS instalado, executar os comandos npm install, e npm start.
+
+---
+
 # Desafio implementador fullstack
 
 Seja parte da jornada de transformação digital no Brasil.
