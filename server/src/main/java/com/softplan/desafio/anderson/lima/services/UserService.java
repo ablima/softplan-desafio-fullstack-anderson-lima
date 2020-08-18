@@ -40,8 +40,10 @@ public class UserService {
 		return null;
 	}
 	
-	public void addUser(User user) {
-		users.add(new User(idCounter++, user.getUsername(), user.getPassword(), user.getType()));
+	public User addUser(User user) {
+		User newUser = new User(idCounter++, user.getUsername(), user.getPassword(), user.getType());
+		users.add(newUser);
+		return newUser;
 	}
 	
 	public Boolean removeUser(long id) {

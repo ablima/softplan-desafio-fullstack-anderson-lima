@@ -1,0 +1,15 @@
+.topBar {
+    background: #1f3a60;
+    height: 70px;
+}
+
+.userContainer {
+    display: flex;
+    margin-left: 12px;
+    vertical-align: middle;    
+}
+
+.userContainer h2,
+.userContainer h4 {
+    color: white;
+}

@@ -3,6 +3,7 @@ package com.softplan.desafio.anderson.lima.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import com.softplan.desafio.anderson.lima.model.User;
 import com.softplan.desafio.anderson.lima.model.UserType;
 import com.softplan.desafio.anderson.lima.services.UserService;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class UserController {
 
@@ -31,8 +33,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/users/add", method = RequestMethod.POST)
-	public void addUser(@RequestBody User user) {
-		userService.addUser(user);
+	public User addUser(@RequestBody User user) {
+		return userService.addUser(user);
 	}
 	
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE) 
